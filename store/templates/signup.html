@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border shadow alert-warning pt-4">
+            <div class="text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Shopping_cart_with_food_clip_art_2.svg/307px-Shopping_cart_with_food_clip_art_2.svg.png"
+                alt="" class="" style="height: 220px; width: 250px;">
+            </div>
+            <!-- <hr> -->
+            <h3 class="alert alert-primary border rounded mx-2 text-center">Create An Account</h3>
+            <form action="" method="post">
+
+                {% csrf_token %}
+
+                <!-- Error Checking -->
+                {% if errorMsg %}
+                <div class="alert alert-danger mx-2" role="alert">
+                    {{ errorMsg }}
+                </div>
+                {% endif %}
+                <!-- end if -->
+
+                <div class="form-group mx-3 my-2">
+                    <label for=""><b> First Name </b></label>
+                    <input type="text" name="firstname" id="" class="form-control form-control-sm py-2"
+                        value="{{formData.firstName}}" placeholder="Enter Your First Name">
+                </div>
+
+                <div class="form-group mx-3 my-3">
+                    <label for=""><b> Last Name </b></label>
+                    <input type="text" name="lastname" id="" class="form-control form-control-sm py-2"
+                        value="{{formData.lastName}}" placeholder="Enter Your Last Name">
+                </div>
+
+                <div class="form-group mx-3 my-3">
+                    <label for=""><b> Phone Number </b></label>
+                    <input type="number" name="phone" id="" class="form-control form-control-sm py-2"
+                        value="{{formData.phone}}" placeholder="Enter Your Phone Number">
+                </div>
+
+                <div class="form-group mx-3 my-3">
+                    <label for=""><b> Email ID </b></label>
+                    <input type="email" name="email" id="" class="form-control form-control-sm py-2"
+                        value="{{formData.email}}" placeholder="Enter Your Email">
+                </div>
+
+                <div class="form-group mx-3 my-3">
+                    <label for=""><b> Password </b></label>
+                    <input type="password" name="password" id="" class="form-control form-control-sm py-2"
+                        placeholder="Enter Your Password">
+                </div>
+
+                <br>
+                <div class="form-group mx-4 mb-4 text-center">
+                    <input class="btn btn-sm btn-info py-2" type="submit" value="Create An Account ">
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
